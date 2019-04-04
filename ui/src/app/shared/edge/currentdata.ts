@@ -31,6 +31,9 @@ export class CurrentData {
                 hasDC: false,
                 powerRatio: null,
                 activePower: null, // sum of activePowerAC and activePowerDC
+                activePowerL1: null,
+                activePowerL2: null,
+                activePowerL3: null,
                 activePowerAC: null,
                 activePowerDC: null,
                 maxActivePower: null
@@ -55,6 +58,9 @@ export class CurrentData {
              */
             result.storage.soc = c['_sum/EssSoc'];
             const essActivePower: number = c['_sum/EssActivePower'];
+            result.storage.activePowerL1 = Math.abs(c['ess0/ActivePowerL1']);
+            result.storage.activePowerL2 = Math.abs(c['ess0/ActivePowerL2']);
+            result.storage.activePowerL3 = Math.abs(c['ess0/ActivePowerL3']);
             result.storage.maxApparentPower = c['_sum/MaxApparentPower'];
             if (!result.storage.maxApparentPower) {
                 result.storage.maxApparentPower = 5000;
@@ -84,6 +90,9 @@ export class CurrentData {
              */
             const gridActivePower: number = c['_sum/GridActivePower'];
             result.grid.maxBuyActivePower = c['_sum/GridMaxActivePower'];
+            result.grid.activePowerL1 = Math.abs(c['meter0/ActivePowerL1']);
+            result.grid.activePowerL2 = Math.abs(c['meter0/ActivePowerL2']);
+            result.grid.activePowerL3 = Math.abs(c['meter0/ActivePowerL3']);
             if (!result.grid.maxBuyActivePower) {
                 result.grid.maxBuyActivePower = 5000;
             }
@@ -109,6 +118,9 @@ export class CurrentData {
              */
             result.production.activePowerAC = c['_sum/ProductionAcActivePower'];
             result.production.activePower = c['_sum/ProductionActivePower'];
+            result.production.activePowerL1 = c['meter1/ActivePowerL1'];
+            result.production.activePowerL2 = c['meter1/ActivePowerL2'];
+            result.production.activePowerL3 = c['meter1/ActivePowerL3'];
             result.production.maxActivePower = c['_sum/ProductionMaxActivePower'];
             if (!result.production.maxActivePower) {
                 result.production.maxActivePower = 10000;

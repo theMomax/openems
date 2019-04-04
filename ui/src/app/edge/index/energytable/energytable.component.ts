@@ -26,11 +26,11 @@ export class EnergytableComponent implements OnDestroy {
       this.edge = edge;
       edge.subscribeChannels(this.websocket, EnergytableComponent.SELECTOR, [
         // Ess
-        new ChannelAddress('_sum', 'EssSoc'), new ChannelAddress('_sum', 'EssActivePower'),
+        new ChannelAddress('_sum', 'EssSoc'), new ChannelAddress('_sum', 'EssActivePower'), new ChannelAddress('ess0', 'ActivePowerL1'), new ChannelAddress('ess0', 'ActivePowerL2'), new ChannelAddress('ess0', 'ActivePowerL3'),
         // Grid
-        new ChannelAddress('_sum', 'GridActivePower'),
+        new ChannelAddress('_sum', 'GridActivePower'), new ChannelAddress('meter0', 'ActivePowerL1'), new ChannelAddress('meter0', 'ActivePowerL2'), new ChannelAddress('meter0', 'ActivePowerL3'),
         // Production
-        new ChannelAddress('_sum', 'ProductionActivePower'), new ChannelAddress('_sum', 'ProductionDcActualPower'), new ChannelAddress('_sum', 'ProductionAcActivePower'), new ChannelAddress('_sum', 'ProductionMaxActivePower'),
+        new ChannelAddress('_sum', 'ProductionActivePower'), new ChannelAddress('_sum', 'ProductionDcActualPower'), new ChannelAddress('_sum', 'ProductionAcActivePower'), new ChannelAddress('_sum', 'ProductionMaxActivePower'), new ChannelAddress('meter1', 'ActivePowerL1'), new ChannelAddress('meter1', 'ActivePowerL2'), new ChannelAddress('meter1', 'ActivePowerL3'),
         // Consumption
         new ChannelAddress('_sum', 'ConsumptionActivePower'), new ChannelAddress('_sum', 'ConsumptionMaxActivePower')
       ]);
