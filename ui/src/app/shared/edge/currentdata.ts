@@ -58,9 +58,9 @@ export class CurrentData {
              */
             result.storage.soc = c['_sum/EssSoc'];
             const essActivePower: number = c['_sum/EssActivePower'];
-            result.storage.activePowerL1 = Math.abs(c['ess0/ActivePowerL1']);
-            result.storage.activePowerL2 = Math.abs(c['ess0/ActivePowerL2']);
-            result.storage.activePowerL3 = Math.abs(c['ess0/ActivePowerL3']);
+            result.storage.activePowerL1 = c['ess0/ActivePowerL1'];
+            result.storage.activePowerL2 = c['ess0/ActivePowerL2'];
+            result.storage.activePowerL3 = c['ess0/ActivePowerL3'];
             result.storage.maxApparentPower = c['_sum/MaxApparentPower'];
             if (!result.storage.maxApparentPower) {
                 result.storage.maxApparentPower = 5000;
@@ -90,9 +90,9 @@ export class CurrentData {
              */
             const gridActivePower: number = c['_sum/GridActivePower'];
             result.grid.maxBuyActivePower = c['_sum/GridMaxActivePower'];
-            result.grid.activePowerL1 = Math.abs(c['meter0/ActivePowerL1']);
-            result.grid.activePowerL2 = Math.abs(c['meter0/ActivePowerL2']);
-            result.grid.activePowerL3 = Math.abs(c['meter0/ActivePowerL3']);
+            result.grid.activePowerL1 = c['meter0/ActivePowerL1'];
+            result.grid.activePowerL2 = c['meter0/ActivePowerL2'];
+            result.grid.activePowerL3 = c['meter0/ActivePowerL3'];
             if (!result.grid.maxBuyActivePower) {
                 result.grid.maxBuyActivePower = 5000;
             }
